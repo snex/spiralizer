@@ -19,7 +19,7 @@ The resulting string would be:
 Add the following to your Gemfile:
 
 ```
-gem 'spiralizer', git: 'git://github.com/snex/spiralizer.git'
+gem 'spiralizer', git: 'https://github.com/snex/spiralizer.git'
 ```
 
 Then run bundle install:
