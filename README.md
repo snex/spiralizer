@@ -13,3 +13,26 @@ The resulting string would be:
 ```
 "a b c d h l k j i e f g"
 ```
+
+## Installing
+
+Add the following to your Gemfile:
+
+```
+gem 'spiralizer', git: 'git://github.com/snex/spiralizer.git'
+```
+
+Then run bundle install:
+
+```
+bundle install
+```
+
+## Usage
+
+```ruby
+matrix = [['A', 'B', C', 'D'], ['E', 'F', 'G', 'H'], ['I', 'J', 'K', 'L']]
+s = Spiralizer.new(matrix)
+str = s.spiralize
+puts str
+>> "a b c d h l k j i e f g"
