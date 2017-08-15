@@ -5,7 +5,7 @@ class Spiralizer
   # "spiral" order, enabling access to the current
   # element at its cursor
   class Mover
-    MOVE_ORDER = %i[right! down! left! up!].cycle
+    MOVE_ORDER = %i[right! down! left! up!].freeze.cycle
 
     def initialize(input)
       @input = input
