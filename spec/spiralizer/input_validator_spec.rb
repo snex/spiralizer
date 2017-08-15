@@ -51,6 +51,19 @@ RSpec.describe Spiralizer::InputValidator do
           )
         end
       end
+
+      context 'input is a valid matrix, not all elements are single capital'\
+              'letters' do
+        let(:input) { [%w[foo bar], %w[foo bar]] }
+
+        it 'raises an ArgumentError with "Input elements must be single'\
+           'capital letters" as the message' do
+          expect { subject }.to raise_exception(
+            ArgumentError,
+            'Input elements must be single capital letters'
+          )
+        end
+      end
     end
   end
 end
