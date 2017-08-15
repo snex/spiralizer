@@ -32,7 +32,9 @@ bundle install
 ## Usage
 
 ```ruby
-matrix = [['A', 'B', C', 'D'], ['E', 'F', 'G', 'H'], ['I', 'J', 'K', 'L']]
+require 'spiralizer'
+
+matrix = [['A', 'B', 'C', 'D'], ['E', 'F', 'G', 'H'], ['I', 'J', 'K', 'L']]
 s = Spiralizer.new(matrix)
 str = s.spiralize
 puts str
