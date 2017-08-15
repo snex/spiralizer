@@ -18,8 +18,9 @@ Gem::Specification.new do |s|
   s.test_files   = Dir.glob('spec/**/*')
   s.require_path = 'lib'
 
-  s.add_development_dependency 'rspec', '~> 3.6'
-  s.add_development_dependency 'simplecov', '~> 0.15'
-  s.add_development_dependency 'rubocop', '~> 0.49'
+  s.add_development_dependency 'coveralls', '~> 0.7'
   s.add_development_dependency 'rake', '~> 12.0'
+  s.add_development_dependency 'rspec', '~> 3.6'
+  s.add_development_dependency 'rubocop', '~> 0.49'
+  s.add_development_dependency 'simplecov', '~> 0.15'
 end
