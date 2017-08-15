@@ -11,8 +11,24 @@ class Spiralizer
   # will be raised.
   class InputValidator
     def initialize(input)
+      @input = input
+
       raise(ArgumentError, 'Only two dimensional arrays are allowed') unless
-        input.is_a?(Array)
+        @input.is_a?(Array)
+      raise(ArgumentError, 'Only two dimensional arrays are allowed') unless
+        array_two_dimensional?
+      raise(ArgumentError, 'Input is not a valid matrix') unless
+        valid_matrix?
+    end
+
+    private
+
+    def array_two_dimensional?
+      @input.all? { |val| val.is_a?(Array) }
+    end
+
+    def valid_matrix?
+      @input.map(&:size).uniq.size == 1
     end
   end
 end

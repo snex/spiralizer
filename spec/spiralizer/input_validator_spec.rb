@@ -27,6 +27,30 @@ RSpec.describe Spiralizer::InputValidator do
           )
         end
       end
+
+      context 'input is an Array, sub-elements are not all Arrays' do
+        let(:input) { %w[foo bar] }
+
+        it 'raises an ArgumentError with "Only two dimensional arrays are'\
+           'allowed" as the message' do
+          expect { subject }.to raise_exception(
+            ArgumentError,
+            'Only two dimensional arrays are allowed'
+          )
+        end
+      end
+
+      context 'input is an Array of sub-Arrays, but not of equal sizes' do
+        let(:input) { [%w[foo bar], %w[foo bar baz]] }
+
+        it 'raises an ArgumentError with "Input is not a valid matrix"'\
+           'as the message' do
+          expect { subject }.to raise_exception(
+            ArgumentError,
+            'Input is not a valid matrix'
+          )
+        end
+      end
     end
   end
 end
