@@ -16,7 +16,9 @@ class Spiralizer
 
     def initialize(input)
       @input = input
+    end
 
+    def validate!
       raise(ArgumentError, ERROR_TWO_DIMENSIONAL) unless
         @input.is_a?(Array)
       raise(ArgumentError, ERROR_TWO_DIMENSIONAL) unless

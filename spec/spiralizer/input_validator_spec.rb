@@ -4,8 +4,8 @@ require 'spec_helper'
 require_relative '../../lib/spiralizer/input_validator'
 
 RSpec.describe Spiralizer::InputValidator do
-  describe '#new' do
-    subject { described_class.new(input) }
+  describe '#validate!' do
+    subject { described_class.new(input).validate! }
 
     context 'valid input' do
       let(:input) { [%w[A B], %w[C D]] }
