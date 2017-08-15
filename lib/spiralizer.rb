@@ -13,6 +13,8 @@ class Spiralizer
   class CannotMoveException < StandardError; end
 
   def initialize(input)
+    InputValidator.new(input).validate!
+
     @input = input
     @max_x = @input.size - 1
     @max_y = @input.first.size - 1
@@ -20,8 +22,6 @@ class Spiralizer
     @cur_y = 0
     @cur_direction = :right
     @elements_traversed = []
-
-    InputValidator.new(@input).validate!
   end
 
   def spiralize
