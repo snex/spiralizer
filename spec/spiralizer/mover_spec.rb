@@ -20,26 +20,26 @@ RSpec.describe Spiralizer::Mover do
     let(:input) { [%w[A B C], %w[D E F]] }
 
     it 'tries to move the cursor down' do
-      subject.instance_variable_set(:@cur_direction, :down)
-      expect(subject).to receive(:move_down!)
+      subject.instance_variable_set(:@cur_direction, :down!)
+      expect(subject).to receive(:down!)
       subject.move!
     end
 
     it 'tries to move the cursor left' do
-      subject.instance_variable_set(:@cur_direction, :left)
-      expect(subject).to receive(:move_left!)
+      subject.instance_variable_set(:@cur_direction, :left!)
+      expect(subject).to receive(:left!)
       subject.move!
     end
 
     it 'tries the cursor right' do
-      subject.instance_variable_set(:@cur_direction, :right)
-      expect(subject).to receive(:move_right!)
+      subject.instance_variable_set(:@cur_direction, :right!)
+      expect(subject).to receive(:right!)
       subject.move!
     end
 
     it 'tries to move the cursor up' do
-      subject.instance_variable_set(:@cur_direction, :up)
-      expect(subject).to receive(:move_up!)
+      subject.instance_variable_set(:@cur_direction, :up!)
+      expect(subject).to receive(:up!)
       subject.move!
     end
   end

@@ -5,7 +5,7 @@ class Spiralizer
   # "spiral" order, enabling access to the current
   # element at its cursor
   class Mover
-    MOVE_ORDER = %i[right down left up].cycle
+    MOVE_ORDER = %i[right! down! left! up!].cycle
 
     def initialize(input)
       @input = input
@@ -22,10 +22,14 @@ class Spiralizer
 
     def move!
       @locs_traversed << [cur_x, cur_y]
-      send("move_#{@cur_direction}!")
+      send @cur_direction
     end
 
     private
+
+    def can_move?
+      send "can_move_#{@cur_direction.to_s.delete('!')}?"
+    end
 
     def can_move_down?
       cur_x < @max_x &&
@@ -55,7 +59,7 @@ class Spiralizer
       @cursor.last
     end
 
-    def move_down!
+    def down!
       if can_move_down?
         @cursor[0] += 1
       else
@@ -63,7 +67,7 @@ class Spiralizer
       end
     end
 
-    def move_left!
+    def left!
       if can_move_left?
         @cursor[1] -= 1
       else
@@ -71,7 +75,7 @@ class Spiralizer
       end
     end
 
-    def move_right!
+    def right!
       if can_move_right?
         @cursor[1] += 1
       else
@@ -79,7 +83,7 @@ class Spiralizer
       end
     end
 
-    def move_up!
+    def up!
       if can_move_up?
         @cursor[0] -= 1
       else
@@ -89,8 +93,8 @@ class Spiralizer
 
     def switch_directions!
       @cur_direction = MOVE_ORDER.next
-      raise CannotMoveException unless send("can_move_#{@cur_direction}?")
-      send("move_#{@cur_direction}!")
+      raise CannotMoveException unless can_move?
+      move!
     end
   end
 end
