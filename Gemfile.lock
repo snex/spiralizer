@@ -49,6 +49,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  rake (~> 12.0)
   rspec (~> 3.6)
   rubocop (~> 0.49)
   simplecov (~> 0.15)
