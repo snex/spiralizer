@@ -27,28 +27,28 @@ class Spiralizer
 
     private
 
+    def loc_new?(x, y)
+      !@locs_traversed.include?([x, y])
+    end
+
     def can_move?
       send "can_move_#{@cur_direction.to_s.delete('!')}?"
     end
 
     def can_move_down?
-      cur_x < @max_x &&
-        !@locs_traversed.include?([cur_x + 1, cur_y])
+      cur_x < @max_x && loc_new?(cur_x + 1, cur_y)
     end
 
     def can_move_left?
-      cur_y.positive? &&
-        !@locs_traversed.include?([cur_x, cur_y - 1])
+      cur_y.positive? && loc_new?(cur_x, cur_y - 1)
     end
 
     def can_move_right?
-      cur_y < @max_y &&
-        !@locs_traversed.include?([cur_x, cur_y + 1])
+      cur_y < @max_y && loc_new?(cur_x, cur_y + 1)
     end
 
     def can_move_up?
-      cur_x.positive? &&
-        !@locs_traversed.include?([cur_x - 1, cur_y])
+      cur_x.positive? && loc_new?(cur_x - 1, cur_y)
     end
 
     def cur_x
@@ -60,35 +60,19 @@ class Spiralizer
     end
 
     def down!
-      if can_move_down?
-        @cursor[0] += 1
-      else
-        switch_directions!
-      end
+      can_move? ? @cursor[0] += 1 : switch_directions!
     end
 
     def left!
-      if can_move_left?
-        @cursor[1] -= 1
-      else
-        switch_directions!
-      end
+      can_move? ? @cursor[1] -= 1 : switch_directions!
     end
 
     def right!
-      if can_move_right?
-        @cursor[1] += 1
-      else
-        switch_directions!
-      end
+      can_move? ? @cursor[1] += 1 : switch_directions!
     end
 
     def up!
-      if can_move_up?
-        @cursor[0] -= 1
-      else
-        switch_directions!
-      end
+      can_move? ? @cursor[0] -= 1 : switch_directions!
     end
 
     def switch_directions!
