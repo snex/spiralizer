@@ -21,4 +21,14 @@ RSpec.describe Spiralizer do
       end
     end
   end
+
+  describe '#spiralize' do
+    subject do
+      described_class.new([%w[A B C D], %w[E F G H], %w[I J K L]]).spiralize
+    end
+
+    it 'returns a string of the elements in lowercase and "spiral" order' do
+      expect(subject).to eq('a b c d h l k j i e f g')
+    end
+  end
 end
