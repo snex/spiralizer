@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '~>2.4'
 
   s.add_development_dependency 'coveralls', '~> 0.7'
-  s.add_development_dependency 'rake', '~> 12.0'
+  s.add_development_dependency 'rake', '~> 13.0'
   s.add_development_dependency 'rspec', '~> 3.6'
   s.add_development_dependency 'rubocop', '~> 0.49'
   s.add_development_dependency 'simplecov', '~> 0.15'
